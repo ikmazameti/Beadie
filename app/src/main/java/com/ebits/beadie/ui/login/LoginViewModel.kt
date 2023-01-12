@@ -4,10 +4,10 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import android.util.Patterns
-import com.ebits.beadie.data.LoginRepository
+import com.ebits.beadie.R
+import com.ebits.beadie.data.repository.LoginRepository
 import com.ebits.beadie.data.Result
 
-import com.ebits.beadie.ui.R
 
 class LoginViewModel(private val loginRepository: LoginRepository) : ViewModel() {
 

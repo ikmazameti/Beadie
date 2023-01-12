@@ -1,5 +1,7 @@
-package com.ebits.beadie.data
+package com.ebits.beadie.data.repository
 
+import com.ebits.beadie.data.LoginDataSource
+import com.ebits.beadie.data.Result
 import com.ebits.beadie.data.model.LoggedInUser
 
 /**
