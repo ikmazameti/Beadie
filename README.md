@@ -1,1 +1,1 @@
-# Beadie
+# Beadie & Jewelries

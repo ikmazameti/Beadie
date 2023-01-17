@@ -5,12 +5,12 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 /**
- * Represent users of the application - [Beadie]
+ * Represent users of the application
  *
  * @property userId
  * @property firstName
  * @property lastName
- * @property userName
+ * @property username
  * @property password
  */
 
@@ -19,6 +19,6 @@ data class User(
     @PrimaryKey(autoGenerate = true) var userId: Int = 0,
     @ColumnInfo(name = "first_name") var firstName: String,
     @ColumnInfo(name = "last_name") var lastName: String,
-    @ColumnInfo(name = "user_name") var userName: String,
-    @ColumnInfo(name = "password_text") var password: String
-)
+    @ColumnInfo(name = "username") var username: String,
+    @ColumnInfo(name = "password") var password: String,
+ )

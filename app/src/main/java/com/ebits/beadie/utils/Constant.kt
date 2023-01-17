@@ -6,5 +6,5 @@ object Constant {
     const val WALK_THROUGH_FINISHED = "isFinished"
 
     //Database
-    const val DB_NAME ="beadie_db"
+    const val DB_NAME ="beadie.db"
 }
