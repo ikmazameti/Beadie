@@ -1,4 +1,4 @@
-package com.ebits.beadie.ui.favourite
+package com.ebits.beadie.ui.wishlist
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,18 +6,18 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
- import com.ebits.beadie.databinding.FragmentFavouriteBinding
+import com.ebits.beadie.databinding.FragmentWishlistBinding
 
-class FavouriteFragment : Fragment() {
-    private lateinit var binding: FragmentFavouriteBinding
-    private val viewModel: FavouriteViewModel by viewModels()
+class WishlistFragment : Fragment() {
+    private lateinit var binding: FragmentWishlistBinding
+    private val viewModel: WishlistViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentFavouriteBinding.inflate(inflater, container, false)
+        binding = FragmentWishlistBinding.inflate(inflater, container, false)
 
         return binding.root
     }

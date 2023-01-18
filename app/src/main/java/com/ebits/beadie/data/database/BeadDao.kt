@@ -12,17 +12,17 @@ import kotlinx.coroutines.flow.Flow
  * with the database
  *
  */
-@Dao
-interface BeadDao {
-    @Insert
-    suspend fun insert(product: Product)
-
-    @Delete
-    suspend fun delete(product: Product)
-
-    @Query("SELECT * FROM Bead ORDER BY userId DESC")
-    fun getAllBeads(): Flow<List<Product>>
-
-    @Query("SELECT * FROM Bead WHERE user_name LIKE :userName")
-    suspend fun getBeadName(beadName: String): Product?
-}
+//@Dao
+//interface BeadDao {
+//    @Insert
+//    suspend fun insert(product: Product)
+//
+//    @Delete
+//    suspend fun delete(product: Product)
+//
+//    @Query("SELECT * FROM Bead ORDER BY userId DESC")
+//    fun getAllBeads(): Flow<List<Product>>
+//
+//    @Query("SELECT * FROM Bead WHERE user_name LIKE :userName")
+//    suspend fun getBeadName(beadName: String): Product?
+//}

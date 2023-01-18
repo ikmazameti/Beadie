@@ -1,6 +1,6 @@
 package com.ebits.beadie.data
 
-import com.ebits.beadie.data.model.LoggedInUser
+import com.ebits.beadie.data.model.User
 import java.io.IOException
 import java.util.*
 
@@ -9,13 +9,13 @@ import java.util.*
  */
 class LoginDataSource {
 
-    fun login(username: String, password: String): Result<LoggedInUser> {
-        try {
+    fun login(username: String, password: String): Result<User> {
+        return try {
             // TODO: handle loggedInUser authentication
-            val fakeUser = LoggedInUser(UUID.randomUUID().toString(), "Jane Doe")
-            return Result.Success(fakeUser)
+            val fakeUser = User(UUID.randomUUID().toString(), "Jane Doe")
+            Result.Success(fakeUser)
         } catch (e: Throwable) {
-            return Result.Error(IOException("Error logging in", e))
+            Result.Error(IOException("Error logging in", e))
         }
     }
 

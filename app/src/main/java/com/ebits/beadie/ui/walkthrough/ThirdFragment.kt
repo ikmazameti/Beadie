@@ -23,7 +23,7 @@ class ThirdFragment : Fragment() {
         val finishedBtn = view.findViewById<Button>(R.id.btn_finish)
 
         finishedBtn.setOnClickListener {
-            findNavController().navigate(R.id.action_walkThrough_to_home)
+            findNavController().navigate(R.id.action_walkThrough_to_login)
             onBoardingFinished()
         }
 
@@ -31,7 +31,7 @@ class ThirdFragment : Fragment() {
     }
 
     /**
-     * Save the boolean value of walkthrough status in Preference
+     * Save the boolean value of walk through status in Preference
      */
     private fun onBoardingFinished() {
         val sharedPref = requireActivity().getSharedPreferences(

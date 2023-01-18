@@ -18,10 +18,21 @@
     <string name="action_sign_in_short">Sign in</string>
     <string name="welcome">"Welcome!"</string>
     <string name="invalid_username">Not a valid username</string>
-    <string name="invalid_password">Password must be >5 characters</string>
-    <string name="login_failed">"Login failed"</string>
+     <string name="login_failed">"Login failed"</string>
     <string name="wishlist">Wishlist</string>
     <string name="_detail_dummy">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</string>
     <string name="related_products">Related Products</string>
     <string name="product_images">List of product images</string>
+
+
+    <string name="error_description">Description missing</string>
+    <string name="error_title">Title missing</string>
+    <string name="error_tag_text">Enter text</string>
+    <string name="enter_first_name">Enter first name</string>
+    <string name="enter_last_name">Enter last name</string>
+    <string name="enter_job_title">Enter job title</string>
+    <string name="enter_email">Enter email address</string>
+    <string name="invalid_email">Invalid email entered</string>
+    <string name="enter_password">Enter password</string>
+    <string name="invalid_password">Your password must be at least 8 characters</string>
 </resources>

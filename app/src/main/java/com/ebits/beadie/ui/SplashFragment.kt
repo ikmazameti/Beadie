@@ -39,7 +39,7 @@ class SplashFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         Handler(Looper.getMainLooper()).postDelayed({
-            if (onBoardingFinished()) findNavController().navigate(R.id.action_splash_to_home)
+            if (onBoardingFinished()) findNavController().navigate(R.id.action_splash_to_login)
             else findNavController().navigate(R.id.action_splash_to_walkThrough)
         }, 3000)
     }

@@ -7,4 +7,6 @@ object Constant {
 
     //Database
     const val DB_NAME ="beadie.db"
+    const val USER = "user"
+
 }

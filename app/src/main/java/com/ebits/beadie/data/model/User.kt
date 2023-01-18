@@ -7,18 +7,14 @@ import androidx.room.PrimaryKey
 /**
  * Represent users of the application
  *
- * @property userId
- * @property firstName
- * @property lastName
- * @property username
+ * @property email
  * @property password
  */
 
-@Entity(tableName = "user")
+
 data class User(
-    @PrimaryKey(autoGenerate = true) var userId: Int = 0,
-    @ColumnInfo(name = "first_name") var firstName: String,
-    @ColumnInfo(name = "last_name") var lastName: String,
-    @ColumnInfo(name = "username") var username: String,
-    @ColumnInfo(name = "password") var password: String,
- )
+    var id: String = "",
+    val first_name: String = "",
+    val last_name: String = "",
+    val email: String = "",
+)

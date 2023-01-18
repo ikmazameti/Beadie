@@ -12,17 +12,17 @@ import kotlinx.coroutines.flow.Flow
  * with the database
  *
  */
-@Dao
-interface UserDao {
-    @Insert
-    suspend fun insert(user: User)
-
-    @Delete
-    suspend fun delete(user: User)
-
-    @Query("SELECT * FROM User ORDER BY userId DESC")
-    fun getAllUsers(): Flow<List<User>>
-
-    @Query("SELECT * FROM User WHERE user_name LIKE :userName")
-    suspend fun getUsername(userName: String): User?
-}
+//@Dao
+//interface UserDao {
+//    @Insert
+//    suspend fun insert(user: User)
+//
+//    @Delete
+//    suspend fun delete(user: User)
+//
+//    @Query("SELECT * FROM User ORDER BY userId DESC")
+//    fun getAllUsers(): Flow<List<User>>
+//
+//    @Query("SELECT * FROM User WHERE user_name LIKE :userName")
+//    suspend fun getUsername(userName: String): User?
+//}

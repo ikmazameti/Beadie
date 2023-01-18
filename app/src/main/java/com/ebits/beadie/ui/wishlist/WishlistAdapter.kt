@@ -1,16 +1,12 @@
-package com.ebits.beadie.ui.favourite
+package com.ebits.beadie.ui.wishlist
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.ListAdapter
-import com.ebits.beadie.R
 import com.ebits.beadie.data.model.Product
 import com.ebits.beadie.databinding.ItemFavBinding
-import com.ebits.beadie.databinding.ItemProductBinding
-import com.ebits.beadie.ui.home.ProductAdapter
 
 class FavouriteAdapter(
     private val onCheckboxToggle: (Product) -> Unit, private val onRowClick: (Product) -> Unit

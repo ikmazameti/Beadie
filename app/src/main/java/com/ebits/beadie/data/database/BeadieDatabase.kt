@@ -8,9 +8,9 @@ import com.ebits.beadie.data.model.User
 
 /**
  * SQLite Database for storing the [Product]s and [User]s.
- */
-@Database(entities = [User::class, Product::class], version = 1, exportSchema = false)
-abstract class BeadieDatabase : RoomDatabase() {
-    abstract val userDao: UserDao
-    abstract val beadDao: BeadDao
-}
+// */
+//@Database(entities = [User::class, Product::class], version = 1, exportSchema = false)
+//abstract class BeadieDatabase : RoomDatabase() {
+//    abstract val userDao: UserDao
+//    abstract val beadDao: BeadDao
+//}
