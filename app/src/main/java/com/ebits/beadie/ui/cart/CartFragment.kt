@@ -8,10 +8,10 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
-import com.ebits.beadie.databinding.FragmentCartBinding
+import com.ebits.beadie.databinding.FragmentMyCartBinding
 
 class CartFragment : Fragment() {
-    private lateinit var binding: FragmentCartBinding
+    private lateinit var binding: FragmentMyCartBinding
     private val viewModel: CartViewModel by viewModels()
 
     override fun onCreateView(
@@ -19,7 +19,7 @@ class CartFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentCartBinding.inflate(inflater, container, false)
+        binding = FragmentMyCartBinding.inflate(inflater, container, false)
 
         return binding.root
     }

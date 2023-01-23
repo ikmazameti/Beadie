@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:clickable="true"
+        android:focusable="true">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:cardCornerRadius="@dimen/_10sdp"
+            app:cardElevation="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/cartProductImage"
+                    android:layout_width="@dimen/_120sdp"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_launcher_background"
+
+                    />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/cartName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:maxEms="12"
+                        android:maxLines="1"
+                        android:text="Name"
+                        android:textColor="@color/mainText"
+                        android:textSize="@dimen/_18ssp" />
+
+                    <TextView
+                        android:id="@+id/cartPrice"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/textAd"
+                        android:textSize="@dimen/_14ssp"
+                        tools:text="$99.4" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center">
+
+                        <LinearLayout
+                            android:id="@+id/decreaseQuantity"
+                            android:layout_width="@dimen/_35sdp"
+                            android:layout_height="@dimen/_35sdp"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:layout_marginBottom="@dimen/_5sdp"
+                            android:background="@drawable/circle_bg"
+                            android:clickable="true"
+                            android:elevation="@dimen/_5sdp"
+                            android:focusable="true"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:contentDescription="@string/decrease_item_quantity"
+                                android:padding="@dimen/_8sdp"
+                                android:src="@drawable/ic_remove"
+                                app:tint="@color/mainText" />
+
+                        </LinearLayout>
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/quantity"
+                            android:layout_width="@dimen/_50sdp"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:layout_marginEnd="@dimen/_5sdp"
+                            android:background="@drawable/card_view_shape"
+                            android:gravity="center"
+                            android:inputType="numberSigned"
+                            android:maxLines="1"
+                            android:textColor="@color/mainText"
+                            android:textStyle="bold"
+                            tools:text="3" />
+
+                        <LinearLayout
+                            android:id="@+id/increaseQuantity"
+                            android:layout_width="@dimen/_35sdp"
+                            android:layout_height="@dimen/_35sdp"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:layout_marginBottom="@dimen/_5sdp"
+                            android:background="@drawable/circle_bg"
+                            android:clickable="true"
+                            android:elevation="@dimen/_5sdp"
+                            android:focusable="true"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:contentDescription="@string/increase_item_quantity"
+                                android:padding="@dimen/_8sdp"
+                                android:src="@drawable/ic_add"
+                                app:tint="@color/mainText" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="@dimen/_40sdp"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/deleteItemFromCart"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:clickable="true"
+                        android:contentDescription="@string/clear_item_from_cart"
+                        android:focusable="true"
+                        android:src="@drawable/ic_clear"
+                        app:tint="@color/mainText" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -3,9 +3,7 @@ package com.ebits.beadie.ui.auth
 
 import androidx.fragment.app.Fragment
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation.findNavController
 import androidx.navigation.fragment.findNavController
@@ -22,6 +20,11 @@ class RegisterFragment : Fragment() {
     val TAG: String = "RegisterFragment"
     lateinit var binding: FragmentRegisterBinding
     private val viewModel: AuthViewModel by viewModels()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -110,6 +113,11 @@ class RegisterFragment : Fragment() {
             }
         }
         return isValid
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        menu.clear()
+        super.onCreateOptionsMenu(menu, inflater)
     }
 
 }

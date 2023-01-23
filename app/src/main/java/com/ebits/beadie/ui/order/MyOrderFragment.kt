@@ -1,4 +1,4 @@
-package com.ebits.beadie.ui.slideshow
+package com.ebits.beadie.ui.order
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,11 +7,11 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.ebits.beadie.databinding.FragmentSlideshowBinding
+import com.ebits.beadie.databinding.FragmentMyOrderBinding
 
-class SlideshowFragment : Fragment() {
+class MyOrderFragment : Fragment() {
 
-    private var _binding: FragmentSlideshowBinding? = null
+    private var _binding: FragmentMyOrderBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -22,14 +22,14 @@ class SlideshowFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val slideshowViewModel =
-            ViewModelProvider(this).get(SlideshowViewModel::class.java)
+        val myOrderViewModel =
+            ViewModelProvider(this).get(MyOrderViewModel::class.java)
 
-        _binding = FragmentSlideshowBinding.inflate(inflater, container, false)
+        _binding = FragmentMyOrderBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         val textView: TextView = binding.textSlideshow
-        slideshowViewModel.text.observe(viewLifecycleOwner) {
+        myOrderViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }
         return root
