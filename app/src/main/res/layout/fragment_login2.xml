@@ -146,14 +146,14 @@
                 android:id="@+id/register_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/login_btn"
+                android:layout_below="@id/actionlogin"
                 android:text="Register"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 app:backgroundTint="@color/black" />
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/login_btn"
+                android:id="@+id/actionlogin"
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

@@ -1,9 +1,6 @@
 package com.ebits.beadie.data.model
 
 import android.os.Parcelable
-import androidx.room.ColumnInfo
-import androidx.room.Entity
-import androidx.room.PrimaryKey
 import kotlinx.parcelize.Parcelize
 
 /**
@@ -14,16 +11,18 @@ import kotlinx.parcelize.Parcelize
  * @property productName
  * @property productPrice
  * @property productPhotoUrl
- * @property productDescription
+ * @property productDesc
  */
 @Parcelize
-@Entity(tableName = "product")
 data class Product(
-    @PrimaryKey(autoGenerate = true) var productId: Int = 0,
-    @ColumnInfo(name = "product_name") var productName: String,
-    @ColumnInfo(name = "product_price") var productPrice: Double,
-    @ColumnInfo(name = "product_photo_Ulr") var productPhotoUrl: String,
-    @ColumnInfo(name = "product_description") var productDescription: String,
+    var productId: Int = 0,
+    var productName: String,
+    var productPrice: Double,
+    var productDesc: String,
+    var createdAt: Long,
+    var modifiedAt: Long,
+    var deletedAt: Long,
+    var productPhotoUrl: String,
 ) : Parcelable
 
 

@@ -1,20 +1,17 @@
 package com.ebits.beadie.data.model
 
-import androidx.room.ColumnInfo
-import androidx.room.Entity
-import androidx.room.PrimaryKey
+import android.os.Parcelable
+import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
 /**
  * Represent users of the application
- *
- * @property email
- * @property password
  */
 
-
+@Parcelize
 data class User(
-    var id: String = "",
-    val first_name: String = "",
-    val last_name: String = "",
-    val email: String = "",
-)
+    @SerializedName("firstname") val firstName: String? = "",
+    @SerializedName("othernames") val lastName: String? = "",
+    @SerializedName("usname") val username: String? = "",//same as email address
+    @SerializedName("pwd") val password: String? = "",
+ ) : Parcelable

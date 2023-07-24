@@ -6,11 +6,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.ebits.beadie.data.model.User
 import com.ebits.beadie.utils.UiState
-import dagger.hilt.android.lifecycle.HiltViewModel
-import javax.inject.Inject
 
-@HiltViewModel
-class AuthViewModel @Inject constructor(
+ class AuthViewModel (
     private val repository: AuthRepository
 ) : ViewModel() {
 

@@ -5,7 +5,7 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_home"
+            android:id="@+id/homeFragment"
             android:icon="@drawable/ic_store"
             android:title="@string/menu_home" />
         <item
@@ -21,7 +21,7 @@
             android:icon="@drawable/ic_order"
             android:title="@string/menu_my_order" />
         <item
-            android:id="@+id/myOrderHistoryFragment"
+            android:id="@+id/orderHistoryFragment"
             android:icon="@drawable/ic_order_history"
             android:title="@string/menu_my_order_history" />
 

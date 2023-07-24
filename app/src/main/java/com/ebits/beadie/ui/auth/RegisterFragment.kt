@@ -1,25 +1,32 @@
 package com.ebits.beadie.ui.auth
 
 
-import androidx.fragment.app.Fragment
 import android.os.Bundle
-import android.view.*
-import androidx.fragment.app.viewModels
-import androidx.navigation.Navigation.findNavController
-import androidx.navigation.fragment.findNavController
+import android.util.Log
+import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import com.ebits.beadie.BuildConfig
 import com.ebits.beadie.R
 import com.ebits.beadie.data.model.User
-import com.ebits.beadie.databinding.FragmentLoginBinding
+import com.ebits.beadie.data.model.UserResponse
+import com.ebits.beadie.network.ApiClient
 import com.ebits.beadie.databinding.FragmentRegisterBinding
-import com.ebits.beadie.utils.*
-import dagger.hilt.android.AndroidEntryPoint
+import com.ebits.beadie.utils.isValidEmail
+import com.ebits.beadie.utils.toast
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
-
-@AndroidEntryPoint
 class RegisterFragment : Fragment() {
     val TAG: String = "RegisterFragment"
     lateinit var binding: FragmentRegisterBinding
-    private val viewModel: AuthViewModel by viewModels()
+//    private val viewModel: AuthViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,8 +34,7 @@ class RegisterFragment : Fragment() {
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         binding = FragmentRegisterBinding.inflate(layoutInflater)
         return binding.root
@@ -36,46 +42,54 @@ class RegisterFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        observer()
         binding.registerBtn.setOnClickListener {
-            if (validation()) {
-                viewModel.register(
-                    email = binding.etEmail.text.toString(),
-                    password = binding.etPassword.text.toString(),
-                    user = getUserObj()
-                )
-            }
+            val firstName = binding.etFirstName.text.toString()
+            val lastName = binding.etLastName.text.toString()
+            val username = binding.etEmail.text.toString()
+            val password = binding.etPassword.text.toString()
+
+            registerUser()
         }
     }
 
-    private fun observer() {
-        viewModel.register.observe(viewLifecycleOwner) { state ->
-            when (state) {
-                is UiState.Loading -> {
-                    binding.registerBtn.text = ""
-                    binding.registerProgress.show()
+    // User registration
+    private fun registerUser() {
+        GlobalScope.launch {
+
+            ApiClient.createApiService().registerUser(
+                apiKey = BuildConfig.API_KEY,
+                username = "johndoe@gmail.com",
+                firstName = "john",
+                lastName = "doe",
+                password = "space123",
+                actions = "registeruser"
+            ).enqueue(object : Callback<UserResponse?> {
+                override fun onResponse(
+                    call: Call<UserResponse?>, response: Response<UserResponse?>
+                ) {
+                    if (response.isSuccessful) {
+                        // Registration successful, handle the response here
+                        Log.d(TAG, "onResponse: ${response.body()}")
+                    } else {
+                        // Registration failed, handle the error here
+                        Log.d(TAG, "onResponse: ${response.errorBody()}")
+                    }
                 }
-                is UiState.Failure -> {
-                    binding.registerBtn.text = "Register"
-                    binding.registerProgress.hide()
-                    toast(state.error)
+
+                override fun onFailure(call: Call<UserResponse?>, t: Throwable) {
+                    // Network error occurred, handle the failure here
                 }
-                is UiState.Success -> {
-                    binding.registerBtn.text = "Register"
-                    binding.registerProgress.hide()
-                    toast(state.data)
-                    findNavController().navigate(R.id.action_register_to_login)
-                }
-            }
+            })
         }
     }
+
 
     private fun getUserObj(): User {
         return User(
-            id = "",
-            first_name = binding.etFirstName.text.toString(),
-            last_name = binding.etLastName.text.toString(),
-            email = binding.etEmail.text.toString(),
+            firstName = binding.etFirstName.text.toString(),
+            lastName = binding.etLastName.text.toString(),
+            username = binding.etEmail.text.toString(),
+            password = binding.etPassword.text.toString(),
         )
     }
 

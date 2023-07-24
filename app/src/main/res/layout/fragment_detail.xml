@@ -8,7 +8,8 @@
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fitsSystemWindows="true">
+        android:fitsSystemWindows="true"
+        >
 
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/appBarLayout"
@@ -75,7 +76,8 @@
                     android:elevation="4dp"
                     android:popupTheme="@style/ThemeOverlay.MaterialComponents.Light"
                     app:layout_collapseMode="pin"
-                    app:menu="@menu/detail_toolbar_menu" />
+                    app:menu="@menu/detail_toolbar_menu"
+                    />
 
             </com.google.android.material.appbar.CollapsingToolbarLayout>
         </com.google.android.material.appbar.AppBarLayout>

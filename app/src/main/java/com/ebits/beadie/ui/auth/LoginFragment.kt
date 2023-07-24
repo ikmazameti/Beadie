@@ -1,23 +1,21 @@
 package com.ebits.beadie.ui.auth
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.ebits.beadie.R
 import com.ebits.beadie.databinding.FragmentLoginBinding
 import com.ebits.beadie.utils.*
-import dagger.hilt.android.AndroidEntryPoint
 
-@AndroidEntryPoint
-class LoginFragment : Fragment() {
+ class LoginFragment : Fragment() {
 
     val TAG: String = "RegisterFragment"
     lateinit var binding: FragmentLoginBinding
-    val viewModel: AuthViewModel by viewModels()
+//    private val viewModel: AuthViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,46 +27,46 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        observer()
-        binding.loginBtn.setOnClickListener {
-            if (validation()) {
-                viewModel.login(
-                    email = binding.etEmail.text.toString(),
-                    password = binding.etPassword.text.toString()
-                )
-            }
-        }
+//        observer()
+//        binding.actionLogin.setOnClickListener {
+//            if (validation()) {
+//                viewModel.login(
+//                    email = binding.etEmail.text.toString(),
+//                    password = binding.etPassword.text.toString()
+//                )
+//            }
+//        }
 
         binding.forgotPassword.setOnClickListener {
 
         }
 
-        binding.registerBtn.setOnClickListener {
+        binding.actionRegister.setOnClickListener {
             findNavController().navigate(R.id.action_login_to_register)
         }
     }
 
-    private fun observer() {
-        viewModel.login.observe(viewLifecycleOwner) { state ->
-            when (state) {
-                is UiState.Loading -> {
-                    binding.loginBtn.text = ""
-                    binding.loginProgress.show()
-                }
-                is UiState.Failure -> {
-                    binding.loginBtn.text = "Login"
-                    binding.loginProgress.hide()
-                    toast(state.error)
-                }
-                is UiState.Success -> {
-                    binding.loginBtn.text = "Login"
-                    binding.loginProgress.hide()
-                    toast(state.data)
-                    findNavController().navigate(R.id.action_login_to_home)
-                }
-            }
-        }
-    }
+//    private fun observer() {
+//        viewModel.login.observe(viewLifecycleOwner) { state ->
+//            when (state) {
+//                is UiState.Loading -> {
+//                    binding.actionLogin.text = ""
+//                    binding.loginProgress.show()
+//                }
+//                is UiState.Failure -> {
+//                    binding.actionLogin.text = "Login"
+//                    binding.loginProgress.hide()
+//                    toast(state.error)
+//                }
+//                is UiState.Success -> {
+//                    binding.actionLogin.text = "Login"
+//                    binding.loginProgress.hide()
+//                    toast(state.data)
+//                    findNavController().navigate(R.id.action_login_to_home)
+//                }
+//            }
+//        }
+//    }
 
     private fun validation(): Boolean {
         var isValid = true

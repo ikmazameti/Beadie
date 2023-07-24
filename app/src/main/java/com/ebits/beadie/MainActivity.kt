@@ -3,25 +3,20 @@ package com.ebits.beadie
 import android.os.Bundle
 import android.view.Menu
 import android.view.View
-import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.ebits.beadie.databinding.ActivityMainBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
 import dagger.hilt.android.AndroidEntryPoint
 
-
 @AndroidEntryPoint
-class MainActivity : AppCompatActivity() {
+ class MainActivity : AppCompatActivity() {
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
     private lateinit var bottomNavView: BottomNavigationView
@@ -56,11 +51,12 @@ class MainActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_home,
+                R.id.homeFragment,
                 R.id.settings,
                 R.id.myCartFragment,
                 R.id.myWishListFragment,
-                R.id.myOrderFragment
+                R.id.myOrderFragment,
+                R.id.orderHistoryFragment,
             ), drawerLayout
         )
 
