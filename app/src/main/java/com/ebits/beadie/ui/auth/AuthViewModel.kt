@@ -1,47 +1,38 @@
 package com.ebits.beadie.ui.auth
 
-
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.ebits.beadie.data.model.User
-import com.ebits.beadie.utils.UiState
+import androidx.lifecycle.viewModelScope
+import com.ebits.beadie.data.model.UserResponse
+import com.ebits.beadie.data.repository.UserRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.launch
+import javax.inject.Inject
 
- class AuthViewModel (
-    private val repository: AuthRepository
+
+@HiltViewModel
+class AuthViewModel @Inject constructor(
+    private val userRepository: UserRepository
 ) : ViewModel() {
+    private val _userResponseLiveData = MutableLiveData<UserResponse>()
+    val userResponseLiveData: LiveData<UserResponse> get() = _userResponseLiveData
 
-    private val _register = MutableLiveData<UiState<String>>()
-    val register: LiveData<UiState<String>>
-        get() = _register
-
-    private val _login = MutableLiveData<UiState<String>>()
-    val login: LiveData<UiState<String>>
-        get() = _login
-
-    fun register(
-        email: String,
-        password: String,
-        user: User
-    ) {
-        _register.value = UiState.Loading
-        repository.registerUser(
-            email = email,
-            password = password,
-            user = user
-        ) { _register.value = it }
-    }
-
-    fun login(
-        email: String,
+    fun registerUser(
+        actions: String,
+        apiKey: String,
+        username: String,
+        firstName: String,
+        lastName: String,
         password: String
     ) {
-        _login.value = UiState.Loading
-        repository.loginUser(
-            email,
-            password
-        ) {
-            _login.value = it
+        viewModelScope.launch {
+            val userResponse = userRepository.registerUser(
+                actions, apiKey, username, firstName, lastName, password
+            )
+            _userResponseLiveData.value = userResponse
         }
     }
+
+
 }

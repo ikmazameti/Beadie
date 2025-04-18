@@ -18,6 +18,7 @@
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
+    <string name="retype_password">Retype password</string>
     <string name="action_sign_in">Sign in or register</string>
     <string name="action_sign_in_short">Sign in</string>
     <string name="welcome">"Welcome!"</string>
@@ -36,9 +37,9 @@
     <string name="enter_last_name">Enter last name</string>
     <string name="enter_job_title">Enter job title</string>
     <string name="enter_email">Enter email address</string>
-    <string name="invalid_email">Invalid email entered</string>
+    <string name="invalid_email">Please enter a valid email address.</string>
     <string name="enter_password">Enter password</string>
-    <string name="invalid_password">Your password must be at least 8 characters</string>
+    <string name="invalid_password">Passwords do not match or do not meet the requirements</string>
     <string name="increase_item_quantity">Increase item quantity</string>
     <string name="decrease_item_quantity">Decrease item quantity</string>
     <string name="clear_item_from_cart">Clear Item from Cart</string>
@@ -52,4 +53,5 @@
     <string name="login">Login</string>
     <string name="register">Register</string>
     <string name="developer">Powered by 8bits</string>
+    <string name="invalid_name">Please enter a valid name format.</string>
 </resources>

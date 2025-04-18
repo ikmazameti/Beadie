@@ -10,9 +10,9 @@ import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import com.ebits.beadie.R
-import com.ebits.beadie.utils.Constant.WALK_THROUGH_FINISHED
-import com.ebits.beadie.utils.Constant.WALK_THROUGH_STATUS
-import androidx.navigation.fragment.findNavController
+ import androidx.navigation.fragment.findNavController
+import com.ebits.beadie.utils.WALK_THROUGH_FINISHED
+import com.ebits.beadie.utils.WALK_THROUGH_STATUS
 
 /**
  * Show splash screen for three seconds.

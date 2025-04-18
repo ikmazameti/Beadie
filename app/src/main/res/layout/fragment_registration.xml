@@ -6,11 +6,25 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingLeft="@dimen/fragment_horizontal_margin"
-        android:paddingTop="@dimen/fragment_vertical_margin"
-        android:paddingRight="@dimen/fragment_horizontal_margin"
-        android:paddingBottom="@dimen/fragment_vertical_margin"
+        android:paddingStart="@dimen/_30sdp"
+        android:paddingTop="@dimen/_16sdp"
+        android:paddingEnd="@dimen/_30sdp"
+        android:paddingBottom="@dimen/_16sdp"
         tools:context="com.ebits.beadie.ui.auth.RegisterFragment">
+
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/header_title"
+            style="@style/TextAppearance.AppCompat.Headline"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/_20sdp"
+            android:text="@string/register"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/tilEmail"
@@ -19,8 +33,9 @@
             android:layout_height="wrap_content"
             android:hint="@string/prompt_email"
             app:errorEnabled="true"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toBottomOf="@id/header_title">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etEmail"
@@ -90,6 +105,26 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilRetypePassword"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:hint="@string/retype_password"
+            app:errorEnabled="true"
+            app:layout_constraintTop_toBottomOf="@id/tilPassword"
+            app:passwordToggleEnabled="true">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etRetypePassword"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="textPassword"
+                android:maxLines="1" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/register_btn"
@@ -97,13 +132,14 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="Register"
+            android:padding="@dimen/_12sdp"
+            android:text="@string/register"
             android:textAllCaps="false"
             android:textColor="@color/white"
             app:backgroundTint="@color/black"
-            app:layout_constraintEnd_toEndOf="@+id/tilEmail"
-            app:layout_constraintStart_toStartOf="@+id/tilEmail"
-            app:layout_constraintTop_toBottomOf="@+id/tilPassword" />
+            app:layout_constraintEnd_toEndOf="@+id/tilRetypePassword"
+            app:layout_constraintStart_toStartOf="@+id/tilRetypePassword"
+            app:layout_constraintTop_toBottomOf="@+id/tilRetypePassword" />
 
 
         <ProgressBar

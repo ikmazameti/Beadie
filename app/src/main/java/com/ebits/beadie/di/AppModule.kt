@@ -1,9 +1,11 @@
 package com.ebits.beadie.di
 
 import com.ebits.beadie.BuildConfig
-import com.ebits.beadie.network.ApiService
-import com.ebits.beadie.utils.Constant
-import com.ebits.beadie.utils.Constant.BASE_URL
+import com.ebits.beadie.data.network.ApiService
+import com.ebits.beadie.data.repository.UserRepository
+import com.ebits.beadie.utils.API_CONNECT_TIMEOUT
+import com.ebits.beadie.utils.API_READ_TIMEOUT
+import com.ebits.beadie.utils.BASE_URL
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -18,15 +20,7 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object NetworkModule {
-    @Singleton
-    @Provides
-    fun provideHttpClient(): OkHttpClient {
-        val loggingInterceptor = provideLoggingInterceptor()
-        return OkHttpClient.Builder().addInterceptor(loggingInterceptor)
-            .connectTimeout(Constant.API_CONNECT_TIMEOUT, TimeUnit.SECONDS)
-            .readTimeout(Constant.API_READ_TIMEOUT, TimeUnit.SECONDS).build()
-    }
+object AppModule {
 
     @Singleton
     @Provides
@@ -39,6 +33,15 @@ object NetworkModule {
         return loggingInterceptor
     }
 
+    @Provides
+    @Singleton
+    fun provideOkHttpClient(logging: HttpLoggingInterceptor): OkHttpClient =OkHttpClient.Builder()
+            .addInterceptor(logging)
+            .connectTimeout(API_CONNECT_TIMEOUT, TimeUnit.SECONDS)
+            .readTimeout(API_READ_TIMEOUT, TimeUnit.SECONDS)
+            .build()
+
+
     @Singleton
     @Provides
     fun provideConverterFactory(): GsonConverterFactory = GsonConverterFactory.create()
@@ -46,13 +49,17 @@ object NetworkModule {
     @Singleton
     @Provides
     fun provideRetrofit(
-        okHttpClient: OkHttpClient, gsonConverterFactory: GsonConverterFactory
-    ): Retrofit {
-        return Retrofit.Builder().baseUrl(BASE_URL).client(okHttpClient)
+        okHttpClient: OkHttpClient,
+        gsonConverterFactory: GsonConverterFactory
+    ): Retrofit =Retrofit.Builder().baseUrl(BASE_URL).client(okHttpClient)
             .addConverterFactory(gsonConverterFactory).build()
-    }
+
 
     @Singleton
     @Provides
     fun provideApiService(retrofit: Retrofit): ApiService = retrofit.create(ApiService::class.java)
+
+    @Provides
+    fun provideUserRepository(apiService: ApiService): UserRepository=UserRepository(apiService)
+
 }

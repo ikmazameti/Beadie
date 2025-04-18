@@ -9,8 +9,8 @@ import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.ebits.beadie.R
-import com.ebits.beadie.utils.Constant
-import com.ebits.beadie.utils.Constant.WALK_THROUGH_FINISHED
+import com.ebits.beadie.utils.WALK_THROUGH_FINISHED
+import com.ebits.beadie.utils.WALK_THROUGH_STATUS
 
 class ThirdFragment : Fragment() {
 
@@ -35,7 +35,7 @@ class ThirdFragment : Fragment() {
      */
     private fun onBoardingFinished() {
         val sharedPref = requireActivity().getSharedPreferences(
-            Constant.WALK_THROUGH_STATUS,
+            WALK_THROUGH_STATUS,
             Context.MODE_PRIVATE
         )
         val editor = sharedPref.edit()

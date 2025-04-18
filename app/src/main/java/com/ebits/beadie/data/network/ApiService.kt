@@ -1,8 +1,8 @@
-package com.ebits.beadie.network
+package com.ebits.beadie.data.network
 
 import com.ebits.beadie.data.model.UserResponse
-import com.ebits.beadie.utils.Constant.BASE_URL
-import retrofit2.Call
+import com.ebits.beadie.utils.BASE_URL
+ import retrofit2.Call
 import retrofit2.http.*
 
 /**
@@ -30,7 +30,7 @@ interface ApiService {
         @Field("firstname") firstName: String,
         @Field("lastname") lastName: String,
         @Field("pwd") password: String,
-    ): Call<UserResponse>
+    ): UserResponse
 
     /**
      * User Login API

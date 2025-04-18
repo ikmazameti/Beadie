@@ -1,7 +1,6 @@
 package com.ebits.beadie.utils
 
-object Constant {
-    //Preferences values
+     //Preferences values
     const val WALK_THROUGH_STATUS = "OnBoarding"
     const val WALK_THROUGH_FINISHED = "isFinished"
 
@@ -18,4 +17,4 @@ object Constant {
     const val STARTING_PAGE = 1
     const val NETWORK_PAGE_SIZE = 50
 
-}
+    const val ACTION_REGISTER = "registeruser"
