@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/_16sdp"
+        tools:context="com.ebits.beadie.ui.auth.LoginFragment">
+
+        <View
+            android:id="@+id/logo"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_200sdp"
+            android:background="@color/beadieDimWhite"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/welcomeTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/afrika_safari_rebuild_st_2lzw"
+            android:text="@string/welcome_back"
+            android:textColor="@color/beadieBlackText"
+            android:textSize="@dimen/_22ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/logo" />
+
+        <TextView
+            android:id="@+id/loginHeadline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:fontFamily="@font/ubuntu_condensed_regular"
+            android:text="@string/login_headline"
+            android:textColor="@color/beadieBlackText"
+            app:layout_constraintEnd_toEndOf="@+id/welcomeTitle"
+            app:layout_constraintStart_toStartOf="@+id/welcomeTitle"
+            app:layout_constraintTop_toBottomOf="@id/welcomeTitle" />
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilEmail"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:hint="@string/prompt_email"
+            app:errorEnabled="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/loginHeadline">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etEmail"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="textEmailAddress"
+                android:maxLines="1" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilPassword"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:hint="@string/prompt_password"
+            app:errorEnabled="true"
+            app:layout_constraintEnd_toEndOf="@+id/tilEmail"
+            app:layout_constraintStart_toStartOf="@+id/tilEmail"
+            app:layout_constraintTop_toBottomOf="@id/tilEmail"
+            app:passwordToggleEnabled="true">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etPassword"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="textPassword"
+                android:maxLines="1" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/forgotPassword"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:clickable="true"
+            android:focusable="true"
+            android:fontFamily="@font/ubuntu_condensed_regular"
+            android:text="@string/forgot_password"
+            android:textAllCaps="false"
+            android:textColor="@color/beadieBlackText"
+            app:layout_constraintEnd_toEndOf="@+id/button_layout"
+            app:layout_constraintTop_toBottomOf="@+id/button_layout" />
+
+
+        <RelativeLayout
+            android:id="@+id/button_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20sdp"
+            app:layout_constraintEnd_toEndOf="@+id/tilEmail"
+            app:layout_constraintStart_toStartOf="@+id/tilEmail"
+            app:layout_constraintTop_toBottomOf="@+id/tilPassword">
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/actionLogin"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_16sdp"
+                android:background="@drawable/btn_bg"
+                android:fontFamily="@font/ubuntu_medium"
+                android:text="@string/login"
+                android:textColor="@color/white"
+                app:backgroundTint="@color/beadieOrange" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/actionRegister"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/actionLogin"
+                android:background="@drawable/btn_bg"
+                android:fontFamily="@font/ubuntu_medium"
+                android:text="@string/register"
+                android:textColor="@color/white"
+                app:backgroundTint="@color/beadieOrange" />
+
+            <ProgressBar
+                android:id="@+id/loginProgress"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:elevation="@dimen/_10sdp"
+                android:indeterminateTint="@color/beadieOrange"
+                android:visibility="invisible"
+
+                />
+
+        </RelativeLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

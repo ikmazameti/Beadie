@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "517059882377",
+    "project_id": "beadie",
+    "storage_bucket": "beadie.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:517059882377:android:e699c2bafc2af2e8af0558",
+        "android_client_info": {
+          "package_name": "com.ebits.beadie"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "517059882377-l8su1kael3e578dg9nrgsihj2mc0r153.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ebits.beadie",
+            "certificate_hash": "4a40972934d99abf9aa10849e1c1233fee7f8d7c"
+          }
+        },
+        {
+          "client_id": "517059882377-qkvtogv224rlfsfmnvodkucclh1jg8m9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDjhlzAGsI2Ai8-MGk5zw4Lana00ipdDL4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "517059882377-qkvtogv224rlfsfmnvodkucclh1jg8m9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
